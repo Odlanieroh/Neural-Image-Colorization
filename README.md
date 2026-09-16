@@ -7,7 +7,7 @@ A PyTorch image-colorization application that predicts the CIE Lab `a` and `b` c
 ## Verified Training Result
 
 | Item | Result |
-
+| --- | --- |
 | Device | NVIDIA GeForce RTX 4090 through CUDA |
 | Maximum epochs | 20 |
 | Completed epoch | 14 |
@@ -30,7 +30,7 @@ The run stopped after epoch 14 because validation loss did not improve for five 
 These images were colorized through the desktop application using the trained checkpoint.
 
 | Flower | Mountain |
-
+| --- | --- |
 | ![Flower colorization](github-assets/examples/flower.jpg) | ![Mountain colorization](github-assets/examples/Mountain.jpg) |
 
 | Elephant | Night scene |
