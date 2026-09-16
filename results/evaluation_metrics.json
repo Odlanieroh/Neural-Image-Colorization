@@ -1,0 +1,7 @@
+{
+  "mean_psnr_db": 24.7557,
+  "validation_images": 300,
+  "device": "cuda",
+  "report_png": "visual_report.png",
+  "report_pdf": "visual_report.pdf"
+}
