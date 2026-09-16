@@ -45,12 +45,14 @@ def train(progress_cb=None):
         log(f"Epoch {epoch + 1}/{config.EPOCHS}  -  loss {total / count:.4f}, val_loss {val_loss:.4f}")
 
         if val_loss < best_val:
+            # Keep an independent CPU copy so later epochs cannot overwrite the best parameters in memory.
             best_val = val_loss
             best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
             since_best = 0
         else:
             since_best += 1
             if since_best >= patience:
+                # Stop after five non-improving epochs to reduce overfitting and unnecessary computation.
                 log(f"Early stop: no val improvement for {patience} epochs.")
                 break
 

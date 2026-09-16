@@ -25,6 +25,7 @@ def evaluate(model=None, report_path="visual_report.png"):
                 Li = np.transpose(Lnp[i], (1, 2, 0))
                 gt = lab_to_rgb(Li, np.transpose(abnp[i], (1, 2, 0)))
                 pr = lab_to_rgb(Li, np.transpose(pred[i], (1, 2, 0)))
+                # RGB values are in [0, 1], making 1.0 the peak value in the PSNR formula.
                 mse = float(np.mean((gt - pr) ** 2))
                 psnrs.append(10 * np.log10(1.0 / max(mse, 1e-10)))
                 if len(samples) < 10:

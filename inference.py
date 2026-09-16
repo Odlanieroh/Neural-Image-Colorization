@@ -21,6 +21,7 @@ def load_model():
 def colorize_array(model, path):
     gray = Image.open(path).convert("L").resize((config.IMG_SIZE, config.IMG_SIZE))
     g = np.asarray(gray, dtype="float32") / 255.0
+    # Converting replicated grayscale to Lab produces the same L-channel representation used during training.
     L = rgb2lab(np.stack([g, g, g], axis=-1)).astype("float32")[:, :, :1]
     tensor = torch.from_numpy(L).permute(2, 0, 1)[None].to(config.DEVICE)
     with torch.no_grad():

@@ -49,6 +49,7 @@ class Colorizer(nn.Module):
         self.register_buffer("std", torch.tensor([0.229, 0.224, 0.225]).view(1, 3, 1, 1))
 
     def forward(self, L):
+        # ResNet expects three ImageNet-normalized channels; repeat the single L channel to match that interface.
         x = (L / 100.0).repeat(1, 3, 1, 1)
         x = (x - self.mean) / self.std
         s0 = self.in_block(x)
@@ -56,9 +57,11 @@ class Colorizer(nn.Module):
         s2 = self.layer2(s1)
         s3 = self.layer3(s2)
         b = self.layer4(s3)
+        # Skip connections recover spatial detail lost while the encoder downsamples the image.
         d = self.up3(b, s3)
         d = self.up2(d, s2)
         d = self.up1(d, s1)
         d = self.up0(d, s0)
         d = torch.relu(self.final_up(d))
+        # Tanh bounds normalized a/b predictions to the range used by the dataset targets.
         return self.head(d)

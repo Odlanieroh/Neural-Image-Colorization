@@ -10,6 +10,7 @@ import config
 
 
 def lab_to_rgb(L, ab):
+    # The network predicts normalized Lab chrominance, so restore its native range before RGB conversion.
     lab = np.concatenate([L, ab * 128.0], axis=-1).astype("float64")
     return np.clip(lab2rgb(lab), 0, 1)
 
@@ -35,6 +36,7 @@ class LabDataset(Dataset):
             if random.random() < 0.5:
                 img = img.transpose(Image.FLIP_LEFT_RIGHT)
             img = img.rotate(random.uniform(-15, 15))
+        # Separate luminance from color so grayscale L is the input and normalized a/b channels are the target.
         lab = rgb2lab(np.asarray(img, dtype="float32") / 255.0).astype("float32")
         L = torch.from_numpy(lab[:, :, :1]).permute(2, 0, 1)
         ab = torch.from_numpy(lab[:, :, 1:] / 128.0).permute(2, 0, 1)
@@ -71,6 +73,7 @@ def _build_base():
 def load_dataloaders():
     base = _build_base()
     n_val = 300
+    # A fixed seed keeps the 300-image validation set reproducible across training and evaluation.
     train_raw, val_raw = random_split(
         base, [len(base) - n_val, n_val],
         generator=torch.Generator().manual_seed(0))
