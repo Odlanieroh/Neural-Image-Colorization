@@ -27,9 +27,9 @@ The run stopped after epoch 14 because validation loss did not improve for five 
 
 These images were colorized through the desktop application using the trained checkpoint.
 
-| Flower | Aircraft |
+| Flower | Mountain |
 | --- | --- |
-| ![Flower colorization](github-assets/examples/flower.jpg) | ![Aircraft colorization](github-assets/examples/aircraft.jpg) |
+| ![Flower colorization](github-assets/examples/flower.jpg) | ![Mountain colorization](github-assets/examples/Mountain.jpg) |
 
 | Elephant | Night scene |
 | --- | --- |
