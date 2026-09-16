@@ -13,6 +13,8 @@ A PyTorch image-colorization application that predicts the CIE Lab `a` and `b` c
 | Completed epoch | 14 |
 | Early-stopping patience | 5 epochs |
 | Best validation MSE | **0.0087** |
+| Mean validation PSNR | **24.7557 dB** |
+| Validation images | **300** |
 | Image resolution | 128 × 128 |
 | Batch size | 32 |
 | Checkpoint size | 163,965,835 bytes |
@@ -94,7 +96,7 @@ python evaluate.py
 
 The evaluator calculates PSNR over the validation split, generates PNG and PDF comparison reports, prints the mean score clearly, and saves structured results to `evaluation_metrics.json`.
 
-The original evaluation run successfully produced the visual report below, but its console score was not retained. To avoid inventing a metric, this repository reports the verified validation loss and includes the generated comparison rather than claiming an unverified PSNR value.
+Evaluation of the saved best checkpoint produced a mean PSNR of **24.7557 dB** across **300 validation images** using CUDA. The generated comparison report is shown below.
 
 ![Validation comparison grid](github-assets/evaluation/validation-grid.jpg)
 
