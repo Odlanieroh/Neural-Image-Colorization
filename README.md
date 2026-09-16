@@ -34,7 +34,7 @@ These images were colorized through the desktop application using the trained ch
 | ![Flower colorization](github-assets/examples/flower.jpg) | ![Mountain colorization](github-assets/examples/Mountain.jpg) |
 
 | Elephant | Night scene |
-
+| --- | --- |
 | ![Elephant colorization](github-assets/examples/elephant.jpg) | ![Night-scene colorization](github-assets/examples/night-scene.jpg) |
 
 ## Model Architecture
@@ -151,7 +151,7 @@ A trained checkpoint must exist at `colorizer.pth`. The included `.gitignore` pr
 ## Project Structure
 
 | Path | Purpose |
-
+| --- | --- |
 | `config.py` | Hyperparameters, checkpoint path, and device selection |
 | `data.py` | Dataset acquisition, augmentation, and Lab conversion |
 | `model.py` | ResNet-50 encoder and U-Net-style decoder |
