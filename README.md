@@ -2,7 +2,7 @@
 
 A PyTorch image-colorization application that predicts the CIE Lab `a` and `b` channels from a grayscale luminance channel. The project combines a pretrained ResNet-50 encoder, a U-Net-style decoder, a mixed-domain data pipeline, checkpointed training, quantitative evaluation, and an interactive CustomTkinter desktop interface.
 
-![Portrait colorization example](assets/examples/portrait.png)
+![Portrait colorization example](github-assets/examples/portrait.jpg)
 
 ## Verified Training Result
 
@@ -19,9 +19,9 @@ A PyTorch image-colorization application that predicts the CIE Lab `a` and `b` c
 
 The run stopped after epoch 14 because validation loss did not improve for five consecutive epochs. The best model state—not merely the final epoch—was restored and saved as `colorizer.pth`.
 
-![CUDA training progress](assets/training/cuda-training.png)
+![CUDA training progress](github-assets/training/cuda-training.jpg)
 
-![Completed training output](assets/training/training-complete.png)
+![Completed training output](github-assets/training/training-complete.jpg)
 
 ## Example Outputs
 
@@ -29,11 +29,11 @@ These images were colorized through the desktop application using the trained ch
 
 | Flower | Aircraft |
 | --- | --- |
-| ![Flower colorization](assets/examples/flower.png) | ![Aircraft colorization](assets/examples/aircraft.png) |
+| ![Flower colorization](github-assets/examples/flower.jpg) | ![Aircraft colorization](github-assets/examples/aircraft.jpg) |
 
 | Elephant | Night scene |
 | --- | --- |
-| ![Elephant colorization](assets/examples/elephant.png) | ![Night-scene colorization](assets/examples/night-scene.png) |
+| ![Elephant colorization](github-assets/examples/elephant.jpg) | ![Night-scene colorization](github-assets/examples/night-scene.jpg) |
 
 ## Model Architecture
 
@@ -96,9 +96,7 @@ The evaluator calculates PSNR over the validation split, generates PNG and PDF c
 
 The original evaluation run successfully produced the visual report below, but its console score was not retained. To avoid inventing a metric, this repository reports the verified validation loss and includes the generated comparison rather than claiming an unverified PSNR value.
 
-![Validation comparison grid](assets/evaluation/validation-grid.png)
-
-The PDF version is available at [assets/evaluation/validation-report.pdf](assets/evaluation/validation-report.pdf).
+![Validation comparison grid](github-assets/evaluation/validation-grid.jpg)
 
 PSNR is also an imperfect colorization metric: multiple color choices may be visually plausible even when they differ from the single reference image.
 
@@ -160,7 +158,7 @@ A trained checkpoint must exist at `colorizer.pth`. The included `.gitignore` pr
 | `inference.py` | Checkpoint loading and single-image inference |
 | `gui.py` | Responsive CustomTkinter interface |
 | `main.py` | Application entry point |
-| `assets/` | Training evidence, validation reports, and examples |
+| `github-assets/` | Optimized training evidence, validation report, and examples |
 | `results/training_metrics.json` | Structured verified training result |
 
 ## Limitations
@@ -170,4 +168,3 @@ A trained checkpoint must exist at `colorizer.pth`. The included `.gitignore` pr
 - Evaluation and retraining require the external datasets to be present or downloaded again.
 - The pretrained checkpoint is too large for a normal Git commit.
 - Colorized results are plausible predictions, not recovered historical ground truth.
-

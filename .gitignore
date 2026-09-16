@@ -1,0 +1,43 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Environment variables and credentials
+.env
+.env.*
+!.env.example
+
+# Downloaded datasets
+data/
+
+# Model checkpoints and experiment artifacts
+*.pth
+*.pt
+*.ckpt
+checkpoints/
+runs/
+
+# Generated evaluation and inference output
+visual_report.png
+visual_report.pdf
+outputs/
+
+# Test and tooling cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+coverage.xml
+.coverage
+

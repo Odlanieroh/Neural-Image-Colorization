@@ -1,0 +1,13 @@
+{
+  "device": "NVIDIA GeForce RTX 4090",
+  "compute_backend": "CUDA",
+  "configured_epochs": 20,
+  "completed_epoch": 14,
+  "early_stopping_patience": 5,
+  "best_validation_mse": 0.0087,
+  "image_size": 128,
+  "batch_size": 32,
+  "checkpoint_file": "colorizer.pth",
+  "checkpoint_size_bytes": 163965835
+}
+
